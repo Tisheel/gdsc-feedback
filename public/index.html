@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDSC</title>
+    <style>
+        *{
+            font-family: monospace;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            height: 40px;
+            outline: none;
+        }
+
+        .input_field {
+            border: none;
+            border-bottom: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Google Developer Student Clubs</h2>
+    <h3>Student Entry</h3>
+    <form method="post" action="/api">
+        <input class="input_field" type="text" name="name" placeholder="name" />
+        <input class="input_field" type="text" name="usn" placeholder="usn" />
+        <input class="input_field" type="email" name="email" placeholder="email" />
+        <input class="input_field" type="tel" name="phone" placeholder="phone" />
+        <input class="input_field" type="text" name="branch" placeholder="branch" />
+        <input class="input_field" type="text" name="sem" placeholder="sem" />
+        <input type="submit" />
+        <input type="reset" />
+    </form>
+</body>
+
+</html>
