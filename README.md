@@ -1,2 +1,2 @@
 ## GDSC feedback form
-live https://gdsc-feedback.onrender.com/
+https://gdsc-feedback.onrender.com/
