@@ -4,45 +4,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GDSC</title>
+    <title>GDSC Feedback Form</title>
+
     <style>
-        *{
+        body {
+            background-color: #111;
+            color: #FFF;
             font-family: monospace;
+            font-weight: bolder;
         }
 
-        form {
+        #header {
+            display: flex;
+            align-items: center;
+        }
+
+        #input_form {
             display: flex;
             flex-direction: column;
-        }
-
-        input {
-            margin-top: 10px;
-            margin-bottom: 10px;
-            height: 40px;
-            outline: none;
+            padding: 15px;
         }
 
         .input_field {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .input_field input {
+            outline: none;
             border: none;
-            border-bottom: 1px solid;
+            padding: 5px 0px 5px 0px;
+            font-size: medium;
+            background: none;
+            border-bottom: 1px solid #FFF;
+            color: #FFF;
+        }
+
+        .input_field textarea {
+            margin-top: 5px;
+            padding: 5px;
+            border: 1px solid #FFF;
+            color: #FFF;
+            background: none;
+            outline: none;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        .input_btns input {
+            background-color: #4286f5;
+            color: #FFF;
+            border: none;
+            font-family: monospace;
+            font-weight: bolder;
+            padding: 10px;
+            outline: none;
+        }
+
+        .input_field_radio {
+            font-size: small;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .input_field_radio div {
+            display: flex;
+            align-items: center;
         }
     </style>
 </head>
 
 <body>
-    <h2>Google Developer Student Clubs</h2>
-    <h3>Student Entry</h3>
-    <form method="post" action="/api">
-        <input class="input_field" type="text" name="name" placeholder="name" />
-        <input class="input_field" type="text" name="usn" placeholder="usn" />
-        <input class="input_field" type="email" name="email" placeholder="email" />
-        <input class="input_field" type="tel" name="phone" placeholder="phone" />
-        <input class="input_field" type="text" name="branch" placeholder="branch" />
-        <input class="input_field" type="text" name="sem" placeholder="sem" />
-        <input type="submit" />
-        <input type="reset" />
-    </form>
-    <p>-forgive me for bad UI 🥲</p>
+    <div id="header">
+        <img width="90px" src="gdsc_logo.jpg" alt="gdsc" />
+        <span>Google Developer Student Clubs</span>
+    </div>
+    <div id="main">
+        <span>Feedback Form</span>
+        <form id="input_form" method="post" action="/api">
+            <div class="input_field">
+                <label for="name">Name</label>
+                <input type="text" name="name" required />
+            </div>
+            <div class="input_field">
+                <label for="usn">USN</label>
+                <input type="text" name="usn" required />
+            </div>
+            <div class="input_field">
+                <label for="email">Email</label>
+                <input type="email" name="email" required />
+            </div>
+            <div class="input_field">
+                <label for="phone">Phone</label>
+                <input type="tel" name="phone" required />
+            </div>
+            <div class="input_field">
+                <label for="branch">Branch</label>
+                <input type="text" name="branch" required />
+            </div>
+            <div class="input_field">
+                <label for="sem">Sem</label>
+                <input type="number" name="sem" required />
+            </div>
+            <div class="input_field">
+                <label for="feedback">Feedback</label>
+                <textarea name="feedback" required></textarea>
+            </div>
+            <div class="input_field_radio">
+                <div>
+                    <input type="radio" name="ratings" value="excellent" required />
+                    <label>Excellent</label>
+                </div>
+                <div>
+                    <input type="radio" name="ratings" value="good" required />
+                    <label>Good</label>
+                </div>
+                <div>
+                    <input type="radio" name="ratings" value="average" required />
+                    <label>Average</label>
+                </div>
+                <div>
+                    <input type="radio" name="ratings" value="poor" required />
+                    <label>Poor</label>
+                </div>
+            </div>
+            <div class="input_btns">
+                <input type="submit" />
+                <input type="reset" />
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>

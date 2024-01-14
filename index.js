@@ -1,22 +1,35 @@
+require('dotenv').config()
 const express = require('express')
 const path = require('path')
+const mongoose = require('mongoose')
+const connectToMongoDB = require('./MongoDB')
 
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT || 3001
+const MONGO_URL = process.env.MONGO_URL;
 
-app.use(express.urlencoded({ extended: true }))
-app.use(express.static(path.join(__dirname, 'public')))
+(async () => {
+    //Middlewares
+    app.use(express.urlencoded({ extended: true }))
+    app.use(express.static(path.join(__dirname, 'public')))
 
-app.post('/api', (req, res) => {
-    console.log(req.body)
-    res.redirect('/')
-})
+    //Connect To Mongo
+    await connectToMongoDB(MONGO_URL, 'Gdsc_feedback')
 
+    //APIs
+    app.post('/api', (req, res) => {
+        try {
 
-app.use('/', (req, res, next) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
-})
+        } catch (err) {
+            console.log(err)
+        }
+    })
 
-app.listen(PORT, () => {
-    console.log(`Server running on PORT:${PORT}`)
-})
+    app.use('/', (req, res, next) => {
+        res.sendFile(path.join(__dirname, 'public', 'index.html'))
+    })
+
+    app.listen(PORT, () => {
+        console.log(`Server running on PORT:${PORT}`)
+    })
+})()
